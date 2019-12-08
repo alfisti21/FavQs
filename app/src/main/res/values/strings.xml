@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">FavQs App</string>
+    <string name="log_in">Log In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="username_or_email">Username or Email</string>
+    <string name="password">Password</string>
+    <string name="my_list">My List</string>
+    <string name="close">CLOSE</string>
+    <string name="next">NEXT</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+</resources>
