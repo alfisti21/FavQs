@@ -131,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
         final Button signUp = findViewById(R.id.sign_up);
         final SearchView search = findViewById(R.id.searchBar);
         final ImageView favs = findViewById(R.id.favourite);
+        final ImageView share = findViewById(R.id.share);
         final ImageView upvote = findViewById(R.id.like);
         final ImageView downvote = findViewById(R.id.dislike);
         final ScrollView scroll = findViewById(R.id.scroll_View);
@@ -202,6 +203,13 @@ public class MainActivity extends AppCompatActivity {
                 toast.show();
             }
         });
+        share.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Toast toast = Toast.makeText(getApplicationContext(), "Login required", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, 0);
+                toast.show();
+            }
+        });
         logIn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent loginIntent = new Intent(getApplicationContext(), Login.class);
@@ -236,6 +244,7 @@ public class MainActivity extends AppCompatActivity {
                                 editor.putString("UPVOTES", quote.getString("upvotes_count"));
                                 editor.putString("DOWNVOTES", quote.getString("downvotes_count"));
                                 editor.putString("QUOTELINE", quoteLine);
+                                editor.putString("QUOTEAUTHOR", author);
                                 editor.apply();
                                 JSONArray tagsTemp = quote.getJSONArray("tags");
                                 String tags = (tagsTemp.toString()).replaceAll("\\[|]|\"", "");
@@ -314,6 +323,7 @@ public class MainActivity extends AppCompatActivity {
                                         editor.putString("UPVOTES", quote.getString("upvotes_count"));
                                         editor.putString("DOWNVOTES", quote.getString("downvotes_count"));
                                         editor.putString("QUOTELINE", quoteLine);
+                                        editor.putString("QUOTEAUTHOR", author);
                                         editor.apply();
                                         JSONArray tagsTemp = quote.getJSONArray("tags");
                                         String tags = (tagsTemp.toString()).replaceAll("\\[|]|\"", "");
