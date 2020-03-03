@@ -205,9 +205,13 @@ public class MainActivity extends AppCompatActivity {
         });
         share.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(), "Login required", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, 0);
-                toast.show();
+                myPrefs = getSharedPreferences("prefID", Context.MODE_PRIVATE);
+                String toShare = "\""+myPrefs.getString("QUOTELINE", null)+"\"\n"+" -"+myPrefs.getString("QUOTEAUTHOR", null);
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_TEXT, toShare);
+                startActivity(Intent.createChooser(intent, "Share"));
             }
         });
         logIn.setOnClickListener(new View.OnClickListener() {
