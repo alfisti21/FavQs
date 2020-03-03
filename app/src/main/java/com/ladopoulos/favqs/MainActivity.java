@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
                     //set title
                     .setTitle("Updates")
                     //set message
-                    .setMessage("-Long Press to copy quote")
+                    .setMessage("-Added \"Share\" button")
                     //set positive button
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
