@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast toast = Toast.makeText(getApplicationContext(),error.toString(), Toast.LENGTH_SHORT);
                         toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, 0);
                         toast.show();
-                        Log.e("VOLLEY ERROR",error.toString());
+                        //Log.e("VOLLEY ERROR",error.toString());
                     }
                 }){
             @Override
@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
         final ScrollView scroll2 = findViewById(R.id.scroll_View2);
         String currentVersionCode = Integer.toString(BuildConfig.VERSION_CODE);
         myClipboard = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
-        Log.e("CURRENT VERSION CODE", currentVersionCode);
+        //Log.e("CURRENT VERSION CODE", currentVersionCode);
 
         if (myPrefs.getBoolean("firstrun", true)) {
             // Do first run stuff here
@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
         String versionCode = myPrefs.getString("versionCode", "");
         try {
             if (!versionCode.matches(currentVersionCode)) {
-                Log.e("CURRENT VERSION CODE", "MPIKA");
+                //Log.e("CURRENT VERSION CODE", "MPIKA");
             myPrefs.edit().putString("versionCode", currentVersionCode).apply();
             AlertDialog alertDialog = new AlertDialog.Builder(this)
                     //set icon
@@ -206,7 +206,7 @@ public class MainActivity extends AppCompatActivity {
         share.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 myPrefs = getSharedPreferences("prefID", Context.MODE_PRIVATE);
-                String toShare = "\""+myPrefs.getString("QUOTELINE", null)+"\"\n"+" -"+myPrefs.getString("QUOTEAUTHOR", null);
+                String toShare = "*"+"\""+myPrefs.getString("QUOTELINE", null)+"\""+"*"+"\n"+" -"+myPrefs.getString("QUOTEAUTHOR", null);
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_SEND);
                 intent.setType("text/plain");
@@ -265,7 +265,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast toast = Toast.makeText(getApplicationContext(),errorCode.toString(), Toast.LENGTH_SHORT);
                         toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, 0);
                         toast.show();
-                        Log.e("VOLLEY ERROR",error.toString());
+                        //Log.e("VOLLEY ERROR",error.toString());
                     }
                 }){
             @Override
@@ -344,7 +344,7 @@ public class MainActivity extends AppCompatActivity {
                                 Toast toast = Toast.makeText(getApplicationContext(),errorCode.toString(), Toast.LENGTH_SHORT);
                                 toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, 0);
                                 toast.show();
-                                Log.e("VOLLEY ERROR",error.toString());
+                                //Log.e("VOLLEY ERROR",error.toString());
                             }
                         }){
                     @Override
@@ -366,7 +366,7 @@ public class MainActivity extends AppCompatActivity {
             public void onLongPress(MotionEvent e) {
                 super.onLongPress(e);
                 myPrefs = getSharedPreferences("prefID", Context.MODE_PRIVATE);
-                String quoteLine = myPrefs.getString("QUOTELINE", null);
+                String quoteLine = "\""+myPrefs.getString("QUOTELINE", null)+"\"\n"+" -"+myPrefs.getString("QUOTEAUTHOR", null);
                 myClip = ClipData.newPlainText("text", quoteLine);
                 myClipboard.setPrimaryClip(myClip);
                 Toast toast = Toast.makeText(getApplicationContext(), "Text Copied", Toast.LENGTH_SHORT);
@@ -472,7 +472,7 @@ public class MainActivity extends AppCompatActivity {
                                 Toast toast = Toast.makeText(getApplicationContext(),error.toString(), Toast.LENGTH_SHORT);
                                 toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, 0);
                                 toast.show();
-                                Log.e("VOLLEY ERROR",error.toString());
+                                //Log.e("VOLLEY ERROR",error.toString());
                             }
                         }){
                     @Override
